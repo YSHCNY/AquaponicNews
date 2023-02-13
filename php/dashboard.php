@@ -73,7 +73,7 @@
         </label>
     </header>
 
-    <aside id="sidebar" class="md:ml-[1rem] border-2 border-slate-50 rounded-lg ml-[-1rem] md:border-r-2 md:border-r-white md:rounded-r-lg bg-[#212127]  text-gray-100 md:w-64 w-3/4 space-y-6 pt-2 px-0 absolute inset-y-0 left-0 transform md:relative md:translate-x-0 transition duration-200 ease-in-out  md:flex md:flex-col md:justify-between overflow-y-auto" data-dev-hint="sidebar; px-0 for frameless; px-2 for visually inset the navigation">
+    <aside id="sidebar" class="md:ml-[1rem] border-2 border-slate-50 rounded-lg ml-[-1rem] md:border-r-2 md:border-r-white md:rounded-r-lg bg-[#212127]  text-gray-100 md:w-64 w-3/4 space-y-6 pt-2 px-0 absolute inset-y-0 left-0 transform md:relative md:translate-x-0 transition duration-200 ease-in-out  md:flex md:flex-col md:justify-between overflow-y-auto z-[999]" data-dev-hint="sidebar; px-0 for frameless; px-2 for visually inset the navigation">
         <div class="flex flex-col space-y-6" data-dev-hint="optional div for having an extra footer navigation">
             <a href="dashboard.php" class="text-white flex items-center space-x-2 px-4" title="Aquaponic System Logo">
               <!-- LOGO -->
@@ -163,19 +163,165 @@
     </aside>
 
     <main id="content" class="flex-1 p-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
+        <div class="">
             <!-- Replace with your content -->
-          
+            <div class="flex lg:flex-row flex-col justify-around justify-center">
+                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center w-inherit mx-3 my-3">
+                    <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
+                    <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
+                        <div class="flex flex-col items-center">
+                            <svg class="w-[60px]" viewBox="0 0 93 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M72.4821 31.3997L14.486 89.3957C11.778 92.1037 7.15187 91.4831 5.51579 88.0417C2.58214 82.0052 0.889645 75.1788 0.889645 68.0139C0.776812 36.8721 32.37 10.2435 43.0892 2.06316C45.1766 0.483503 47.9974 0.483503 50.0284 2.06316C54.9366 5.78664 64.1325 13.5157 72.7642 23.6706C74.6823 25.9273 74.5695 29.3123 72.4821 31.3997Z" fill="#02800E"/>
+                            <path d="M92.2927 68.072C92.2927 93.2337 71.8136 113.713 46.5954 113.713C36.4969 113.713 27.0751 110.441 19.4589 104.799C16.6945 102.768 16.4688 98.7061 18.8948 96.2802L75.7063 39.4687C78.3579 36.8171 82.8147 37.3813 84.6201 40.6534C89.2462 49.1725 92.3491 58.4248 92.2927 68.072Z" fill="#02800E"/>
+                            </svg>
 
-
-
+                            <p class="text-dark font-bold text-3xl">5</p>
+                        </div>
+                    </div>
+                    <canvas class="p-10 max-w-[240px]" id="chartDoughnut"></canvas>
+                </div>
+                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center mx-3 my-3">
+                    <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
+                        <div class="flex flex-col items-center">
+                            <svg class="w-[60px]" viewBox="0 0 113 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M42.0269 65.2915V25.4C42.0269 17.1378 48.2974 10.44 56.0324 10.44C63.7674 10.44 70.0379 17.1378 70.0379 25.4V65.2915C75.7075 69.8403 79.3749 77.0827 79.3749 85.2399C79.3749 99.0102 68.9241 110.173 56.0324 110.173C43.1407 110.173 32.6899 99.0102 32.6899 85.2399C32.6899 77.0827 36.3573 69.8403 42.0269 65.2915Z" fill="#115977" stroke="#115977" stroke-width="4" stroke-linejoin="round"/>
+                            <path d="M56.2286 42.6515V75.0648" stroke="#363642" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M56.2286 95.0115C61.3853 95.0115 65.5656 90.5463 65.5656 85.0381C65.5656 79.53 61.3853 75.0648 56.2286 75.0648C51.0719 75.0648 46.8916 79.53 46.8916 85.0381C46.8916 90.5463 51.0719 95.0115 56.2286 95.0115Z" stroke="#363642" stroke-width="10" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="text-dark font-bold text-3xl">25 C</p>
+                        </div>
+                    </div>
+                    <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
+                    
+                    <canvas class="p-10 max-w-[240px]" id="chartDoughnut2"></canvas>
+                </div>
+                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center mx-3 my-3">
+                    <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
+                        <div class="flex flex-col items-center">
+                            <svg class="w-[60px]" viewBox="0 0 107 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.248901 0.510498H106.787V107.049H0.248901V0.510498Z" fill="white" fill-opacity="0.01"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M53.5181 98.1708C71.9055 98.1708 86.8114 83.2649 86.8114 64.8775C86.8114 33.8038 53.5181 9.38873 53.5181 9.38873C53.5181 9.38873 20.2249 33.8038 20.2249 64.8775C20.2249 83.2649 35.1307 98.1708 53.5181 98.1708Z" stroke="#1D419F" stroke-width="6.35241" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20.2249 64.8775C20.2249 83.2649 35.1307 98.1707 53.5181 98.1707C71.9055 98.1707 86.8114 83.2649 86.8114 64.8775C86.8114 64.8775 66.8354 71.5361 53.5181 64.8775C40.2008 58.2188 20.2249 64.8775 20.2249 64.8775Z" fill="white" stroke="#1D419F" stroke-width="6.35241" stroke-linejoin="round"/>
+                            </svg>
+                            <p class="text-dark font-bold text-3xl">80%</p>
+                        </div>
+                    </div>
+                    <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
+                    <canvas class="p-10 max-w-[240px]" id="chartDoughnut3"></canvas>
+                </div>
+            </div>
+            
             <!-- /End replace -->
         </div>
     </main>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const dataDoughnut = {
+    labels: ["pH Level", ""],
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: [9, 5],
+        backgroundColor: [
+          "#02800E",
+          "#B9DBBD"
+
+        ],
+        hoverOffset: 4,
+        cutout: "90%",
+      },
+    ],
+  };
+  
+  const configDoughnut = {
+    type: "doughnut",
+    data: dataDoughnut,
+    options: {
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    },
+  };
+  var chartBar = new Chart(
+    document.getElementById("chartDoughnut"),
+    configDoughnut
+  );
+
+//   second donut
+  const dataDoughnut1 = {
+    labels: ["JavaScript", "Python", "Ruby"],
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: [300, 50],
+        backgroundColor: [
+          "#115977",
+          "#B9DBBD",
+        ],
+        hoverOffset: 4,
+        cutout: "90%",
+      },
+    ],
+  };
+
+  const configDoughnut1 = {
+    type: "doughnut",
+    data: dataDoughnut1,
+    options: {
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    },
+  };
+
+  var chartBar = new Chart(
+    document.getElementById("chartDoughnut2"),
+    configDoughnut1
+  );
 
 
+// third donut
+const dataDoughnut2 = {
+    labels: ["JavaScript", "Python", "Ruby"],
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: [300, 50],
+        backgroundColor: [
+          "#1D419F",
+          "#B9DBBD",
+        ],
+        hoverOffset: 4,
+        cutout: "90%",
+      },
+    ],
+  };
 
+  const configDoughnut2 = {
+    type: "doughnut",
+    data: dataDoughnut2,
+    options: {
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    },
+  };
+
+  var chartBar = new Chart(
+    document.getElementById("chartDoughnut3"),
+    configDoughnut2
+  );
+</script>
+
+<script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
 </body>
 
 </html>
