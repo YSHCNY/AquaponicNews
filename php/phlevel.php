@@ -253,9 +253,7 @@ include 'conn.php'
                             <th scope="col" class="px-6 py-3">
                                 pH Value
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                pH Status
-                            </th>
+                          
                         </tr>
                     </thead>
                     <tbody>
@@ -268,7 +266,7 @@ include 'conn.php'
                                             <td class="border-grey-light border p-3"><?php echo $row["date"]; ?></td>
                                             <td class="border-grey-light border p-3"><?php echo $row["time"]; ?></td>
                                             <td class="border-grey-light border p-3 "><?php echo $row["phvalue"]; ?></td>
-                                            <td class="border-grey-light border p-3  "><?php echo $row["phstatus"]; ?></td>
+                                           
                                         </tr>
                                     
                                     </tbody>
