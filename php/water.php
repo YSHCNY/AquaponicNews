@@ -163,10 +163,100 @@
     </aside>
 
     <main id="content" class="flex-1 p-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto">
             <!-- Replace with your content -->
-            
+            <h1 class="text-2xl font-bold text-white mb-5">pH Report</h1>
+            <div class="flex sm:flex-row flex-col w-full">
+                <div class="bg-[#118128] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow[1] sm:mr-4 sm:mb-0 mb-4">
+                    <div class="flex items-center justify-center mb-2">
+                        <div class="mr-4">
+                            <svg class="w-[3rem]" viewBox="0 0 92 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M71.5928 30.5213L13.5967 88.5173C10.8887 91.2253 6.26252 90.6047 4.62645 87.1633C1.69279 81.1268 0.000301452 74.3004 0.000301452 67.1355C-0.112531 35.9937 31.4807 9.36512 42.1998 1.18474C44.2872 -0.394915 47.108 -0.394915 49.139 1.18474C54.0473 4.90823 63.2431 12.6373 71.8748 22.7922C73.793 25.0489 73.6802 28.4339 71.5928 30.5213Z" fill="#FFFFFF"/>
+                            <path d="M91.4033 67.1936C91.4033 92.3553 70.9242 112.834 45.7061 112.834C35.6075 112.834 26.1858 109.562 18.5695 103.921C15.8051 101.89 15.5795 97.8277 18.0054 95.4018L74.8169 38.5903C77.4685 35.9387 81.9254 36.5028 83.7307 39.775C88.3568 48.2941 91.4597 57.5464 91.4033 67.1936Z" fill="#FFFFFF"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white text-center sm:text-center">5.3</h3>
+                    </div>
+                    <h5 class="text-center text-white">pH Value</h5>
+                    
+                </div>
+                <div class="bg-[#0AB8B6] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow">
+                    <div class="flex flex-col justify-between h-full">
+                        <div class="flex items-center mb-2 grow">
+                            <h1 class="text-2xl text-white flex mx-auto">Change the Water</h1>
+                        </div>
+                        <h5 class="text-center text-white">Diagnosis</h5>
+                    </div>
+                </div>
+                <div>
 
+                </div>
+            </div>
+         
+           <!-- TABLE ////////////////////////////////////////////// -->
+
+           <!-- DB CONNECTION -->
+        <?php
+                        //Creates new record as per request
+                        //Connect to database
+                        $hostname = "localhost";		//example = localhost or 192.168.0.0
+                        $username = "root";		//example = root
+                        $password = "";	
+                        $dbname = "aquaponic_db";
+                        // Create connection
+                        $conn = mysqli_connect($hostname, $username, $password, $dbname);
+                        // Check connection
+                        if (!$conn) {
+                            die("Connection failed !!!");
+                        } 
+                    ?>
+
+       
+           <section class="my-12">
+            <div class="overflow-x-hidden shadow-2xl rounded-md">
+
+            <div class="px-5 pt-3">
+                <h1 class="text-2xl text-dark font-bold mb-4">Hourly Report</h1>
+            </div>
+                <table class="w-full text-md text-left text-[#00000] dark:text-[#00000]">
+                    <thead class=" text-md text-[#00000] uppercase bg-[#D9D9D9]  dark:text-[#00000]">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Date
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                            Time
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Water Temperature
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                 Status
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                                        $table = mysqli_query($conn, "SELECT * FROM waterreporttbl"); //nodemcu_ldr_table = Youre_table_name
+                                        while($row = mysqli_fetch_array($table))
+                                        {
+                                    ?>
+                                        <tr class="flex table-row mb-2 ">
+                                            <td class="border-grey-light border p-3"><?php echo $row["date"]; ?></td>
+                                            <td class="border-grey-light border p-3"><?php echo $row["time"]; ?></td>
+                                            <td class="border-grey-light border p-3 "><?php echo $row["watertemp"]; ?></td>
+                                            <td class="border-grey-light border p-3  "><?php echo $row["status"]; ?></td>
+                                        </tr>
+                                    
+                                    </tbody>
+                            
+                                    <?php
+                                        }
+                                    ?>
+                </table>
+
+            </div>
+           </section>
 
 
             <!-- /End replace -->
