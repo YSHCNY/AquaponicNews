@@ -1,3 +1,19 @@
+<?php
+                        //Creates new record as per request
+                        //Connect to database
+                        $hostname = "localhost";		//example = localhost or 192.168.0.0
+                        $username = "root";		//example = root
+                        $password = "";	
+                        $dbname = "aquaponic_db";
+                        // Create connection
+                        $conn = mysqli_connect($hostname, $username, $password, $dbname);
+                        // Check connection
+                        if (!$conn) {
+                            die("Connection failed !!!");
+                        } 
+                    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -183,7 +199,15 @@
                 <div class="bg-[#0AB8B6] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow">
                     <div class="flex flex-col justify-between h-full">
                         <div class="flex items-center mb-2 grow">
-                            <h1 class="text-2xl text-white flex mx-auto">Change the Water</h1>
+                    <?php
+                        $table = mysqli_query($conn, "SELECT * FROM waterreporttbl"); //nodemcu_ldr_table = Youre_table_name
+                                        while($row = mysqli_fetch_array($table))
+                                        {
+                                            ?>
+                            <h1 class="text-2xl text-white flex mx-auto"><?php echo $row["status"]; ?></h1>
+                                        
+                            <?php } 
+                            ?>
                         </div>
                         <h5 class="text-center text-white">Diagnosis</h5>
                     </div>
@@ -196,20 +220,7 @@
            <!-- TABLE ////////////////////////////////////////////// -->
 
            <!-- DB CONNECTION -->
-        <?php
-                        //Creates new record as per request
-                        //Connect to database
-                        $hostname = "localhost";		//example = localhost or 192.168.0.0
-                        $username = "root";		//example = root
-                        $password = "";	
-                        $dbname = "aquaponic_db";
-                        // Create connection
-                        $conn = mysqli_connect($hostname, $username, $password, $dbname);
-                        // Check connection
-                        if (!$conn) {
-                            die("Connection failed !!!");
-                        } 
-                    ?>
+      
 
        
            <section class="my-12">
