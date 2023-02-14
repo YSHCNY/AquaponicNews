@@ -174,8 +174,8 @@
                         <div class="flex flex-col items-center">
                             <svg class="w-[60px]" viewBox="0 0 113 121" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M42.0269 65.2915V25.4C42.0269 17.1378 48.2974 10.44 56.0324 10.44C63.7674 10.44 70.0379 17.1378 70.0379 25.4V65.2915C75.7075 69.8403 79.3749 77.0827 79.3749 85.2399C79.3749 99.0102 68.9241 110.173 56.0324 110.173C43.1407 110.173 32.6899 99.0102 32.6899 85.2399C32.6899 77.0827 36.3573 69.8403 42.0269 65.2915Z" fill="#115977" stroke="#115977" stroke-width="4" stroke-linejoin="round"/>
-                            <path d="M56.2286 42.6515V75.0648" stroke="#363642" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M56.2286 95.0115C61.3853 95.0115 65.5656 90.5463 65.5656 85.0381C65.5656 79.53 61.3853 75.0648 56.2286 75.0648C51.0719 75.0648 46.8916 79.53 46.8916 85.0381C46.8916 90.5463 51.0719 95.0115 56.2286 95.0115Z" stroke="#363642" stroke-width="10" stroke-linejoin="round"/>
+                            <path d="M56.2286 42.6515V75.0648" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M56.2286 95.0115C61.3853 95.0115 65.5656 90.5463 65.5656 85.0381C65.5656 79.53 61.3853 75.0648 56.2286 75.0648C51.0719 75.0648 46.8916 79.53 46.8916 85.0381C46.8916 90.5463 51.0719 95.0115 56.2286 95.0115Z" stroke="white" stroke-width="10" stroke-linejoin="round"/>
                             </svg>
                             <p class="text-dark font-bold text-3xl">25 C</p>
                         </div>

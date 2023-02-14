@@ -1,7 +1,19 @@
 <?php
-include 'conn.php'
+                        //Creates new record as per request
+                        //Connect to database
+                        $hostname = "localhost";		//example = localhost or 192.168.0.0
+                        $username = "root";		//example = root
+                        $password = "";	
+                        $dbname = "aquaponic_db";
+                        // Create connection
+                        $conn = mysqli_connect($hostname, $username, $password, $dbname);
+                        // Check connection
+                        if (!$conn) {
+                            die("Connection failed !!!");
+                        } 
+                    ?>
 
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -184,7 +196,14 @@ include 'conn.php'
                             <path d="M91.4033 67.1936C91.4033 92.3553 70.9242 112.834 45.7061 112.834C35.6075 112.834 26.1858 109.562 18.5695 103.921C15.8051 101.89 15.5795 97.8277 18.0054 95.4018L74.8169 38.5903C77.4685 35.9387 81.9254 36.5028 83.7307 39.775C88.3568 48.2941 91.4597 57.5464 91.4033 67.1936Z" fill="#FFFFFF"/>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-white text-center sm:text-center">5.3</h3>
+                        <?php
+                        $table = mysqli_query($conn, "SELECT * FROM phreport_tbl WHERE DATE LIKE CURRENT_DATE ORDER BY time desc LIMIT 1  "); //nodemcu_ldr_table = Youre_table_name
+                                        while($row = mysqli_fetch_array($table))
+                                        {
+                                            ?>
+                        <h3 class="text-2xl font-bold text-white text-center sm:text-center"><?php echo $row["phvalue"]; ?></h3>
+
+                       
                     </div>
                     <h5 class="text-center text-white">pH Value</h5>
                     
@@ -192,7 +211,8 @@ include 'conn.php'
                 <div class="bg-[#0AB8B6] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow">
                     <div class="flex flex-col justify-between h-full">
                         <div class="flex items-center mb-2 grow">
-                            <h1 class="text-2xl text-white flex mx-auto">Change the Water</h1>
+                            <h1 class="text-[2rem] text-white flex mx-auto"><?php echo $row["phstatus"]; ?></h1>
+                            <?php } ?>
                         </div>
                         <h5 class="text-center text-white">Diagnosis</h5>
                     </div>
@@ -244,7 +264,7 @@ include 'conn.php'
                     </thead>
                     <tbody>
                         <?php
-                                        $table = mysqli_query($conn, "SELECT * FROM phreport_tbl ORDER BY DATE DESC"); //nodemcu_ldr_table = Youre_table_name
+                                        $table = mysqli_query($conn, "SELECT * FROM phreport_tbl ORDER BY DATE AND TIME DESC"); //nodemcu_ldr_table = Youre_table_name
                                         while($row = mysqli_fetch_array($table))
                                         {
                                     ?>
