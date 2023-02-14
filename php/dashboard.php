@@ -111,21 +111,7 @@
                 </div>
 
                 </a>
-                <a href="history.php" class="flex mt-3 items-center  transition duration-200  hover:text-white">
-                   <!-- HISTORY  -->
-                    <div class=" flex flex-col items-center mx-auto px-8 py-5 hover:bg-[#303039] rounded-md duration-300 cursor-pointer  ">
-                    <svg class="w-[3rem] h-[3rem]" viewBox="0 0 55 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M35.8533 32.4977H16.6889C15.5664 32.4977 14.6356 31.5534 14.6356 30.4146C14.6356 29.2758 15.5664 28.3314 16.6889 28.3314H35.8533C36.9758 28.3314 37.9067 29.2758 37.9067 30.4146C37.9067 31.5534 36.9758 32.4977 35.8533 32.4977Z" fill="white"/>
-                    <path d="M28.3381 49.6236H16.3467C15.2242 49.6236 14.2933 48.6793 14.2933 47.5405C14.2933 46.4017 15.2242 45.4573 16.3467 45.4573H28.3381C29.4606 45.4573 30.3915 46.4017 30.3915 47.5405C30.3915 48.6793 29.4606 49.6236 28.3381 49.6236Z" fill="white"/>
-                    <path d="M33.1156 15.2764H22.1644C19.5362 15.2764 14.6356 15.2764 14.6356 7.63822C14.6356 0 19.5362 0 22.1644 0H33.1156C35.7438 0 40.6444 0 40.6444 7.63822C40.6444 10.3047 40.6444 15.2764 33.1156 15.2764ZM22.1644 4.1663C19.454 4.1663 18.7422 4.1663 18.7422 7.63822C18.7422 11.1101 19.454 11.1101 22.1644 11.1101H33.1156C36.5378 11.1101 36.5378 10.388 36.5378 7.63822C36.5378 4.1663 35.826 4.1663 33.1156 4.1663H22.1644Z" fill="white"/>
-                    <path d="M35.8533 59.7167H19.4267C4.04036 59.7167 0.946671 52.5507 0.946671 40.9684V24.3032C0.946671 11.6377 5.464 6.2215 16.5794 5.63822C17.6745 5.58267 18.6875 6.4437 18.7422 7.61026C18.797 8.77683 17.9209 9.72119 16.7984 9.77674C9.02312 10.2211 5.05334 12.5821 5.05334 24.3032V40.9684C5.05334 51.2452 7.05191 55.5504 19.4267 55.5504H35.8533C48.2281 55.5504 50.2267 51.2452 50.2267 40.9684V24.3032C50.2267 12.5821 46.2569 10.2211 38.4816 9.77674C37.3591 9.72119 36.483 8.72128 36.5378 7.58249C36.5925 6.4437 37.5781 5.55489 38.7006 5.61044C49.816 6.2215 54.3333 11.6377 54.3333 24.2755V40.9406C54.3333 52.5507 51.2396 59.7167 35.8533 59.7167Z" fill="white"/>
-                    </svg>
-                    <span class="text-[1rem] mt-2 mx-auto text-gray-200">HISTORY</span>
-                    </div>
-
-
-
-                </a>
+               
                 <a href="phlevel.php" class="flex mt-3 items-center  transition duration-200  hover:text-white">
                       <!-- PH LEVEL  -->
 
@@ -165,6 +151,7 @@
     <main id="content" class="flex-1 p-6 lg:px-8">
         <div class="">
             <!-- Replace with your content -->
+            <h1 class="text-2xl text-slate-50 my-4 font-bold">Dashboard</h1>
             <div class="flex lg:flex-row flex-col justify-around justify-center">
                 <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center w-inherit mx-3 my-3 px-5">
                     <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
