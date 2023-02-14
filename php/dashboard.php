@@ -1,3 +1,9 @@
+<?php
+date_default_timezone_set('Asia/Manila');
+$date = date('m-d-y');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,6 +158,7 @@
         <div class="">
             <!-- Replace with your content -->
             <h1 class="text-2xl text-slate-50 my-4 font-bold">Dashboard</h1>
+            <h1 class="text-l text-slate-50 my-4 font-bold">Current status today (<?php echo $date; ?>)</h1>
             <div class="flex lg:flex-row flex-col justify-around justify-center">
                 <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center w-inherit mx-3 my-3 px-5">
                     <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
