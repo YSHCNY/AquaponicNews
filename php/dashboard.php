@@ -2,6 +2,7 @@
 date_default_timezone_set('Asia/Manila');
 $date = date('m-d-y');
 
+
 ?>
 
 <!DOCTYPE html>
@@ -169,7 +170,7 @@ $date = date('m-d-y');
                             <path d="M92.2927 68.072C92.2927 93.2337 71.8136 113.713 46.5954 113.713C36.4969 113.713 27.0751 110.441 19.4589 104.799C16.6945 102.768 16.4688 98.7061 18.8948 96.2802L75.7063 39.4687C78.3579 36.8171 82.8147 37.3813 84.6201 40.6534C89.2462 49.1725 92.3491 58.4248 92.2927 68.072Z" fill="#02800E"/>
                             </svg>
 
-                            <p class="text-dark font-bold text-3xl">5</p>
+                            <p id="pHTextCenter" class="text-dark font-bold text-3xl"></p>
                         </div>
                     </div>
                     <div>
@@ -184,7 +185,7 @@ $date = date('m-d-y');
                             <path d="M56.2286 42.6515V75.0648" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M56.2286 95.0115C61.3853 95.0115 65.5656 90.5463 65.5656 85.0381C65.5656 79.53 61.3853 75.0648 56.2286 75.0648C51.0719 75.0648 46.8916 79.53 46.8916 85.0381C46.8916 90.5463 51.0719 95.0115 56.2286 95.0115Z" stroke="white" stroke-width="10" stroke-linejoin="round"/>
                             </svg>
-                            <p class="text-dark font-bold text-3xl">25 C</p>
+                            <p id="tempTextCenter" class="text-dark font-bold text-3xl"></p>
                         </div>
                     </div>
                     <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
@@ -215,73 +216,160 @@ $date = date('m-d-y');
     </main>
 </div>
 <script src="../js/chart.js"></script>
+<script src="../js/jquery.min.js"></script>
 <script>
-  const dataDoughnut = {
-    labels: ["pH Level", ""],
-    datasets: [
+$(document).ready(function () {
+    phDonutShow();
+    tempDonutShow();
+});
+function phDonutShow()
+  {
       {
-        label: "My First Dataset",
-        data: [9, 5],
-        backgroundColor: [
-          "#02800E",
-          "#B9DBBD"
-        ],
-        hoverOffset: 4,
-        cutout: "90%",
-      },
-    ],
-  };
-  
-  const configDoughnut = {
-    type: "doughnut",
-    data: dataDoughnut,
-    options: {
-        maintainAspectRatio: true,
-        plugins: {
-            legend: {
-                display: false
+          $.post("phData.php",
+          function (data)
+          {
+              console.log(data);
+              var pHValue = [];
+            
+              for (var i in data) {
+                  // name.push(data[i].student_name);
+                  pHValue.push(data[i].phvalue);
+                
+              }
+              var maxpH = 14;
+              let mark = maxpH - pHValue[0];
+              pHValue.push(mark);
+              $('#pHTextCenter').text(pHValue[0])
+              console.log(pHValue);
+              const dataDoughnut = {
+                  labels: ["pH Level", ""],
+                  datasets: [
+                    {
+                      label: "My First Dataset",
+                      data: pHValue,
+                      backgroundColor: [
+                        "#02800E",
+                        "#B9DBBD"
+                      ],
+                      hoverOffset: 4,
+                      cutout: "90%",
+                      
+                    },
+                  ],
+                };
+              
+                const configDoughnut = {
+                  type: "doughnut",
+                  data: dataDoughnut,
+                  options: {
+                      maintainAspectRatio: true,
+                      plugins: {
+                          legend: {
+                              display: false
+                          }
+                      },
+                      events: [],
+                      
+                  },
+                };
+                var chartBar = new Chart(
+                  document.getElementById("chartDoughnut"),
+                  configDoughnut
+                );
+          });
+      }
+  }
+
+  function tempDonutShow()
+        {
+            {
+                $.post("tempData.php",
+                function (data)
+                {
+                    console.log(data);
+                    var tempVal = [];
+                  
+                    for (var i in data) {
+                        // name.push(data[i].student_name);
+                        tempVal.push(data[i].watertemp);
+                      
+                    }
+                    var maxTemp = 100;
+                    let mark = maxTemp - tempVal[0];
+                    tempVal.push(mark);
+                    $('#tempTextCenter').text(tempVal[0])
+                    console.log(tempVal);
+                    const dataDoughnut1 = {
+                      labels: ["Water Temperature",""],
+                      datasets: [
+                        {
+                          label: "My First Dataset",
+                          data: tempVal,
+                          backgroundColor: [
+                            "#115977",
+                            "#B9DBBD",
+                          ],
+                          hoverOffset: 4,
+                          cutout: "90%",
+                        },
+                      ],
+                    };
+
+                        const configDoughnut1 = {
+                          type: "doughnut",
+                          data: dataDoughnut1,
+                          options: {
+                              plugins: {
+                                  legend: {
+                                      display: false
+                                  }
+                              }, 
+                              events: [],
+                          },
+                        };
+                        var chartBar = new Chart(
+                          document.getElementById("chartDoughnut2"),
+                          configDoughnut1
+                        );
+                });
             }
         }
-    },
-  };
-  var chartBar = new Chart(
-    document.getElementById("chartDoughnut"),
-    configDoughnut
-  );
+
 
 //   second donut
-  const dataDoughnut1 = {
-    labels: ["JavaScript", "Python", "Ruby"],
-    datasets: [
-      {
-        label: "My First Dataset",
-        data: [300, 50],
-        backgroundColor: [
-          "#115977",
-          "#B9DBBD",
-        ],
-        hoverOffset: 4,
-        cutout: "90%",
-      },
-    ],
-  };
+  // const dataDoughnut1 = {
+  //   labels: ["JavaScript", "Python", "Ruby"],
+  //   datasets: [
+  //     {
+  //       label: "My First Dataset",
+  //       data: [300, 50],
+  //       backgroundColor: [
+  //         "#115977",
+  //         "#B9DBBD",
+  //       ],
+  //       hoverOffset: 4,
+  //       cutout: "90%",
+  //     },
+  //   ],
+  // };
 
-  const configDoughnut1 = {
-    type: "doughnut",
-    data: dataDoughnut1,
-    options: {
-        plugins: {
-            legend: {
-                display: false
-            }
-        }
-    },
-  };
+  // const configDoughnut1 = {
+  //   type: "doughnut",
+  //   data: dataDoughnut1,
+  //   options: {
+  //       plugins: {
+  //           legend: {
+  //               display: false
+  //           }
+  //       }, 
+  //       events: [],
+  //   },
+  // };
 
-  var chartBar = new Chart(
-    document.getElementById("chartDoughnut2"),
-    configDoughnut1
-  );
+  // var chartBar = new Chart(
+  //   document.getElementById("chartDoughnut2"),
+  //   configDoughnut1
+  // );
 
 
 // third donut
@@ -309,7 +397,8 @@ const dataDoughnut2 = {
             legend: {
                 display: false
             }
-        }
+        },
+        events: [],
     },
   };
 
