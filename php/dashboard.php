@@ -166,7 +166,7 @@
         <div class="">
             <!-- Replace with your content -->
             <div class="flex lg:flex-row flex-col justify-around justify-center">
-                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center w-inherit mx-3 my-3">
+                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center w-inherit mx-3 my-3 px-5">
                     <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
                     <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
                         <div class="flex flex-col items-center">
@@ -178,9 +178,11 @@
                             <p class="text-dark font-bold text-3xl">5</p>
                         </div>
                     </div>
-                    <canvas class="p-10 max-w-[240px]" id="chartDoughnut"></canvas>
+                    <div>
+                    <canvas class="p-5 max-w-[300px]" id="chartDoughnut"></canvas>
+                    </div>
                 </div>
-                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center mx-3 my-3">
+                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center mx-3 my-3 px-5">
                     <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
                         <div class="flex flex-col items-center">
                             <svg class="w-[60px]" viewBox="0 0 113 121" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -192,10 +194,11 @@
                         </div>
                     </div>
                     <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
-                    
-                    <canvas class="p-10 max-w-[240px]" id="chartDoughnut2"></canvas>
+                    <div>
+                    <canvas class="p-5 max-w-[300px]" id="chartDoughnut2"></canvas>
+                    </div>
                 </div>
-                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center mx-3 my-3">
+                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center mx-3 my-3 px-5">
                     <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
                         <div class="flex flex-col items-center">
                             <svg class="w-[60px]" viewBox="0 0 107 108" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -207,7 +210,9 @@
                         </div>
                     </div>
                     <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
-                    <canvas class="p-10 max-w-[240px]" id="chartDoughnut3"></canvas>
+                    <div>
+                    <canvas class="p-5 max-w-[300px]" id="chartDoughnut3"></canvas>
+                    </div>
                 </div>
             </div>
             
@@ -215,7 +220,7 @@
         </div>
     </main>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/chart.js"></script>
 <script>
   const dataDoughnut = {
     labels: ["pH Level", ""],
@@ -226,7 +231,6 @@
         backgroundColor: [
           "#02800E",
           "#B9DBBD"
-
         ],
         hoverOffset: 4,
         cutout: "90%",
