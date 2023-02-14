@@ -269,9 +269,10 @@
                                         {
                                     ?>
                                         <tr class="flex table-row mb-2 ">
+                                            <td class="border-grey-light border p-3 "><?php echo $row["phvalue"]; ?></td>
                                             <td class="border-grey-light border p-3"><?php echo $row["date"]; ?></td>
                                             <td class="border-grey-light border p-3"><?php echo $row["time"]; ?></td>
-                                            <td class="border-grey-light border p-3 "><?php echo $row["phvalue"]; ?></td>
+                                           
                                            
                                         </tr>
                                     
