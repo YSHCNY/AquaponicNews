@@ -166,8 +166,8 @@ $date = date('m-d-y');
                     <div class="absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
                         <div class="flex flex-col items-center">
                             <svg class="w-[60px]" viewBox="0 0 93 114" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M72.4821 31.3997L14.486 89.3957C11.778 92.1037 7.15187 91.4831 5.51579 88.0417C2.58214 82.0052 0.889645 75.1788 0.889645 68.0139C0.776812 36.8721 32.37 10.2435 43.0892 2.06316C45.1766 0.483503 47.9974 0.483503 50.0284 2.06316C54.9366 5.78664 64.1325 13.5157 72.7642 23.6706C74.6823 25.9273 74.5695 29.3123 72.4821 31.3997Z" fill="#02800E"/>
-                            <path d="M92.2927 68.072C92.2927 93.2337 71.8136 113.713 46.5954 113.713C36.4969 113.713 27.0751 110.441 19.4589 104.799C16.6945 102.768 16.4688 98.7061 18.8948 96.2802L75.7063 39.4687C78.3579 36.8171 82.8147 37.3813 84.6201 40.6534C89.2462 49.1725 92.3491 58.4248 92.2927 68.072Z" fill="#02800E"/>
+                            <path class="phLogo" d="M72.4821 31.3997L14.486 89.3957C11.778 92.1037 7.15187 91.4831 5.51579 88.0417C2.58214 82.0052 0.889645 75.1788 0.889645 68.0139C0.776812 36.8721 32.37 10.2435 43.0892 2.06316C45.1766 0.483503 47.9974 0.483503 50.0284 2.06316C54.9366 5.78664 64.1325 13.5157 72.7642 23.6706C74.6823 25.9273 74.5695 29.3123 72.4821 31.3997Z" fill="#FFFFF"/>
+                            <path class="phLogo" d="M92.2927 68.072C92.2927 93.2337 71.8136 113.713 46.5954 113.713C36.4969 113.713 27.0751 110.441 19.4589 104.799C16.6945 102.768 16.4688 98.7061 18.8948 96.2802L75.7063 39.4687C78.3579 36.8171 82.8147 37.3813 84.6201 40.6534C89.2462 49.1725 92.3491 58.4248 92.2927 68.072Z" fill="#FFFFF"/>
                             </svg>
 
                             <p id="pHTextCenter" class="text-dark font-bold text-3xl"></p>
@@ -228,7 +228,6 @@ function phDonutShow()
           $.post("phData.php",
           function (data)
           {
-              console.log(data);
               var pHValue = [];
             
               for (var i in data) {
@@ -240,7 +239,23 @@ function phDonutShow()
               let mark = maxpH - pHValue[0];
               pHValue.push(mark);
               $('#pHTextCenter').text(pHValue[0])
-              console.log(pHValue);
+              var phValue = $('#pHTextCenter').text();
+              var phColor;
+              if (phValue >= 0 && phValue < 8) {
+                phColor = "#F5ED1C";
+                    $(".phLogo").attr('fill', phColor);
+              } else if (phValue == 8) {
+                phColor = "#33A94B";
+                    $(".phLogo").attr('fill', phColor);
+              } else if (phValue > 8 && phValue <= 14) {
+                phColor = "#3853A4";
+                    $(".phLogo").attr('fill', phColor);
+              } else {
+                phColor = "#02800E";
+                    $(".phLogo").attr('fill', phColor);
+              } 
+              console.log(phValue);
+              console.log(phColor);
               const dataDoughnut = {
                   labels: ["pH Level", ""],
                   datasets: [
@@ -248,8 +263,8 @@ function phDonutShow()
                       label: "My First Dataset",
                       data: pHValue,
                       backgroundColor: [
-                        "#02800E",
-                        "#B9DBBD"
+                        phColor,
+                        "#D9D9D9"
                       ],
                       hoverOffset: 4,
                       cutout: "90%",
@@ -286,7 +301,6 @@ function phDonutShow()
                 $.post("tempData.php",
                 function (data)
                 {
-                    console.log(data);
                     var tempVal = [];
                   
                     for (var i in data) {
@@ -298,7 +312,6 @@ function phDonutShow()
                     let mark = maxTemp - tempVal[0];
                     tempVal.push(mark);
                     $('#tempTextCenter').text(tempVal[0])
-                    console.log(tempVal);
                     const dataDoughnut1 = {
                       labels: ["Water Temperature",""],
                       datasets: [
@@ -307,7 +320,7 @@ function phDonutShow()
                           data: tempVal,
                           backgroundColor: [
                             "#115977",
-                            "#B9DBBD",
+                            "#D9D9D9",
                           ],
                           hoverOffset: 4,
                           cutout: "90%",
@@ -371,6 +384,54 @@ function phDonutShow()
   //   configDoughnut1
   // );
 
+            //   let phColor = "";
+            //   switch (true) {
+            //     case phLevel = 0:
+            //         phColor = "#EE1C25";
+            //         break;
+            //     case (phLevel = 1):
+            //         phColor = "#F26724";
+            //         break;
+            //     case (phLevel = 2):
+            //         phColor = "#F8C511";
+            //         break;
+            //     case (phLevel = 3):
+            //         phColor = "#F5ED1C";
+            //         break;
+            //     case (phLevel = 4):
+            //         phColor = "#B5D333";
+            //         break;
+            //     case (phLevel = 5):
+            //         phColor = "#83C241";
+            //         break;
+            //     case (phLevel = 6):
+            //         phColor = "#4DB749";
+            //         break;
+            //     case (phLevel = 7):
+            //         phColor = "#33A94B";
+            //         break;
+            //     case (phLevel = 8):
+            //         phColor = "#22B46B";
+            //         break;
+            //     case (phLevel = 9):
+            //         phColor = "#22B46B";
+            //         break;
+            //     case (phLevel = 10):
+            //         phColor = "#4690CD";
+            //         break;
+            //     case (phLevel = 11):
+            //         phColor = "#3853A4";
+            //         break;
+            //     case (phLevel = 12):
+            //         phColor = "#5A51A2";
+            //         break;
+            //     case (phLevel = 13):
+            //         phColor = "#63459D";
+            //         break;
+            //     case (phLevel = 15):
+            //         phColor = "#462C83";
+            //     }
+            //     console.log(phColor);
 
 // third donut
 const dataDoughnut2 = {
@@ -381,7 +442,7 @@ const dataDoughnut2 = {
         data: [300, 50],
         backgroundColor: [
           "#1D419F",
-          "#B9DBBD",
+          "#D9D9D9",
         ],
         hoverOffset: 4,
         cutout: "90%",
