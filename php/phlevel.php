@@ -11,6 +11,8 @@
                         if (!$conn) {
                             die("Connection failed !!!");
                         } 
+
+                        include 'autoUpdate.php';
                     ?>
 
 

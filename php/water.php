@@ -167,7 +167,7 @@
     <main id="content" class="flex-1 p-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
             <!-- Replace with your content -->
-            <h1 class="text-2xl font-bold text-white mb-5">pH Report</h1>
+            <h1 class="text-2xl font-bold text-white mb-5">Temperature Report</h1>
             <div class="flex sm:flex-row flex-col w-full">
                 <div class="bg-[#118128] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow[1] sm:mr-4 sm:mb-0 mb-4">
                     <div class="flex items-center justify-center mb-2">
@@ -235,7 +235,7 @@
                     </thead>
                     <tbody>
                         <?php
-                                        $table = mysqli_query($conn, "SELECT * FROM waterreporttbl order by date desc"); //nodemcu_ldr_table = Youre_table_name
+                                        $table = mysqli_query($conn, "SELECT * FROM waterreporttbl ORDER BY DATE AND TIME DESC"); //nodemcu_ldr_table = Youre_table_name
                                         while($row = mysqli_fetch_array($table))
                                         {
                                     ?>
