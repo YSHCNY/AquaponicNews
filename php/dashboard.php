@@ -241,8 +241,6 @@ function phDonutShow()
               for (var i in data) {
                   // name.push(data[i].student_name);
                   pHValue.push(data[i].phvalue);
-            
-                
               }
               var maxpH = 14;
               let mark = maxpH - pHValue[0];
@@ -250,68 +248,67 @@ function phDonutShow()
               $('#pHTextCenter').text(pHValue[0])
               var phValue = $('#pHTextCenter').text();
               var phColor;
-       
               var phtextcolor;
             //   CUT
             
-               if (phValue == 1) {
+               if (phValue > 0.1 && phValue <= 1) {
                 phColor = "#EE1C25";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#EE1C25');
-              } else if (phValue == 2) {
+                    $(".phtext").attr("style", 'color:#EE1C25');
+              } else if (phValue > 1 && phValue <= 2) {
                 phColor = "#F26724";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#F26724');
-              } else if (phValue == 3) {
+                    $(".phtext").attr("style", 'color:#F26724');
+              } else if (phValue > 2 && phValue <= 3) {
                 phColor = "#F8C511";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#F8C511');
-              } else if (phValue == 4) {
+                    $(".phtext").attr("style", 'color:#F8C511');
+              } else if (phValue > 3 && phValue <= 4) {
                 phColor = "#F5ED1C";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#F5ED1C');
-              } else if (phValue == 5) {
+                    $(".phtext").attr("style", 'color:#F5ED1C');
+              } else if (phValue > 4 && phValue <= 5) {
                 phColor = "#B5D333";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#B5D333');
-              } else if (phValue == 6) {
+                    $(".phtext").attr("style", 'color:#B5D333');
+              } else if (phValue > 5 && phValue <= 5) {
                 phColor = "#41B700";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#41B700');
+                    $(".phtext").attr("style", 'color:#41B700');
 
-              } else if (phValue == 7) {
+              } else if (phValue > 6 && phValue <= 7) {
                 phColor = "#019E00";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#019E00');
-              } else if (phValue == 8) {
+                    $(".phtext").attr("style", 'color:#019E00');
+              } else if (phValue > 7 && phValue <= 8) {
                 phColor = "#01AF60";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#01AF60');
-              } else if (phValue == 9) {
+                    $(".phtext").attr("style", 'color:#01AF60');
+              } else if (phValue > 8 && phValue <= 9) {
                phColor = "#01BEBE"; 
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#01BEBE');
+                    $(".phtext").attr("style", 'color:#01BEBE');
 
-              } else if (phValue == 10) {
+              } else if (phValue > 9 && phValue <= 10) {
                 phColor = "#1488D0";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#1488D0');
-              } else if (phValue == 11) {
+                    $(".phtext").attr("style", 'color:#1488D0');
+              } else if (phValue > 10 && phValue <= 11) {
                 phColor = "#004FE0";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#004FE0');
-              } else if (phValue == 12) {
+                    $(".phtext").attr("style", 'color:#004FE0');
+              } else if (phValue > 11 && phValue <= 12) {
                 phColor = "#5A51A2";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#5A51A2');
-              } else if (phValue == 13) {
+                    $(".phtext").attr("style", 'color:#5A51A2');
+              } else if (phValue > 12 && phValue <= 13) {
                 phColor = "#63459D";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#63459D');
-              }  else if (phValue == 14) {
+                    $(".phtext").attr("style", 'color:#63459D');
+              }  else if (phValue > 13 && phValue <= 14) {
                 phColor = "#48249F";
                     $(".phLogo").attr('fill', phColor);
-                    $(".phtext").attr("style",  'color:#48249F');
+                    $(".phtext").attr("style", 'color:#48249F');
               } 
             //   CUT
               console.log(phValue);
