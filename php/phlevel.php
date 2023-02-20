@@ -27,6 +27,7 @@
   <title>AS | pH Report</title>
   <link rel="stylesheet" href="dist/output.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/jquery.min.js"></script>
   <!-- <script src="./tailwind3.js"></script> -->
   
 </head>
@@ -190,7 +191,7 @@
             <!-- Replace with your content -->
             <h1 class="text-2xl font-bold text-white mb-5">pH Report</h1>
             <div class="flex sm:flex-row flex-col w-full">
-                <div class="bg-[#118128] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow[1] sm:mr-4 sm:mb-0 mb-4">
+                <div id="phBg" class="bg-[#118128] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow[1] sm:mr-4 sm:mb-0 mb-4">
                     <div class="flex items-center justify-center mb-2">
                         <div class="mr-4">
                             <svg class="w-[3rem]" viewBox="0 0 92 113" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -293,7 +294,27 @@
         </div>
     </main>
 </div>
+<script>
+$(document).ready(function () {
 
+});
+function showBg() {
+    {
+        $.post("phData.php",
+          function (data) {
+            var pHValue = [];
+            var dbstatus = [];
+
+            for (var i in data) {
+                  // name.push(data[i].student_name);
+                  pHValue.push(data[i].phvalue);
+                  dbstatus.push(data[i].dbstatus)
+                  
+              }
+          })
+    }
+}
+</script>
 
 
 </body>

@@ -22,7 +22,7 @@
 
        while($row = $result-> fetch_assoc()){         
         if ($sql >= 0){                                      
-            $conn->query("UPDATE `phreport_tbl` set phstatus = 'Not Safe (Acidic)' , dbstatus = 'ACIDIC' WHERE `phvalue` BETWEEN 0 and 5.9 ");
+            $conn->query("UPDATE `phreport_tbl` set phstatus = 'Not Safe (Acidic)' , dbstatus = 'ACIDIC' WHERE `phvalue` BETWEEN 0.1 and 5.9 ");
         }
        }
 

@@ -177,7 +177,7 @@ $date = date('m-d-y');
                     <canvas class="p-5 max-w-[300px]" id="chartDoughnut"></canvas>
                     </div>
 
-                    <h1 id="status" class = "phtext text-2xl font-bold">"dbstatus" check db</h1>
+                    <h1 id="status" class = "phtext text-2xl font-bold"></h1>
                     <!-- dbstatus coloumn from database should be the content in the first h1 -->
                     <h1 class = "text-black font-bold text-l pb-[5px]">pH Level</h1>
                 </div>
@@ -197,6 +197,10 @@ $date = date('m-d-y');
                     <div>
                     <canvas class="p-5 max-w-[300px]" id="chartDoughnut2"></canvas>
                     </div>
+
+                    <h1 id="temp" class =" text-2xl font-bold">awaw</h1>
+                    <!-- dbstatus coloumn from database should be the content in the first h1 -->
+                    <h1 class = "text-black font-bold text-l pb-[5px]">Water Temperature</h1>
                 </div>
 
                 <!-- water level -->
@@ -215,6 +219,8 @@ $date = date('m-d-y');
                     <div>
                     <canvas class="p-5 max-w-[300px]" id="chartDoughnut3"></canvas>
                     </div>
+
+                    
                 </div>
             </div>
             
@@ -238,10 +244,14 @@ function phDonutShow()
               var pHValue = [];
               var dbstatus = [];
             
+            
               for (var i in data) {
                   // name.push(data[i].student_name);
                   pHValue.push(data[i].phvalue);
+                  dbstatus.push(data[i].dbstatus)
+                  
               }
+              $('#status').text(dbstatus[0]);
               var maxpH = 14;
               let mark = maxpH - pHValue[0];
               pHValue.push(mark);
@@ -251,7 +261,7 @@ function phDonutShow()
               var phtextcolor;
             //   CUT
             
-               if (phValue > 0.1 && phValue <= 1) {
+               if (phValue > 0 && phValue <= 1) {
                 phColor = "#EE1C25";
                     $(".phLogo").attr('fill', phColor);
                     $(".phtext").attr("style", 'color:#EE1C25');
@@ -311,8 +321,8 @@ function phDonutShow()
                     $(".phtext").attr("style", 'color:#48249F');
               } 
             //   CUT
-              console.log(phValue);
-              console.log(phColor);
+            //   console.log(phValue);
+            //   console.log(phColor);
               const dataDoughnut = {
                   labels: ["pH Level", ""],
                   datasets: [
@@ -359,12 +369,14 @@ function phDonutShow()
                 function (data)
                 {
                     var tempVal = [];
+                    var tempStatus = [];
                   
                     for (var i in data) {
-                        // name.push(data[i].student_name); 
                         tempVal.push(data[i].watertemp);
-                      
+                        tempStatus.push(data[i].status);
                     }
+
+                    $('#temp').text(tempStatus[0]);
                     var maxTemp = 100;
                     let mark = maxTemp - tempVal[0];
                     tempVal.push(mark);
@@ -404,91 +416,6 @@ function phDonutShow()
                 });
             }
         }
-
-
-//   second donut
-  // const dataDoughnut1 = {
-  //   labels: ["JavaScript", "Python", "Ruby"],
-  //   datasets: [
-  //     {
-  //       label: "My First Dataset",
-  //       data: [300, 50],
-  //       backgroundColor: [
-  //         "#115977",
-  //         "#B9DBBD",
-  //       ],
-  //       hoverOffset: 4,
-  //       cutout: "90%",
-  //     },
-  //   ],
-  // };
-
-  // const configDoughnut1 = {
-  //   type: "doughnut",
-  //   data: dataDoughnut1,
-  //   options: {
-  //       plugins: {
-  //           legend: {
-  //               display: false
-  //           }
-  //       }, 
-  //       events: [],
-  //   },
-  // };
-
-  // var chartBar = new Chart(
-  //   document.getElementById("chartDoughnut2"),
-  //   configDoughnut1
-  // );
-
-            //   let phColor = "";
-            //   switch (true) {
-            //     case phLevel = 0:
-            //         phColor = "#EE1C25";
-            //         break;
-            //     case (phLevel = 1):
-            //         phColor = "#F26724";
-            //         break;
-            //     case (phLevel = 2):
-            //         phColor = "#F8C511";
-            //         break;
-            //     case (phLevel = 3):
-            //         phColor = "#F5ED1C";
-            //         break;
-            //     case (phLevel = 4):
-            //         phColor = "#B5D333";
-            //         break;
-            //     case (phLevel = 5):
-            //         phColor = "#83C241";
-            //         break;
-            //     case (phLevel = 6):
-            //         phColor = "#4DB749";
-            //         break;
-            //     case (phLevel = 7):
-            //         phColor = "#33A94B";
-            //         break;
-            //     case (phLevel = 8):
-            //         phColor = "#22B46B";
-            //         break;
-            //     case (phLevel = 9):
-            //         phColor = "#22B46B";
-            //         break;
-            //     case (phLevel = 10):
-            //         phColor = "#4690CD";
-            //         break;
-            //     case (phLevel = 11):
-            //         phColor = "#3853A4";
-            //         break;
-            //     case (phLevel = 12):
-            //         phColor = "#5A51A2";
-            //         break;
-            //     case (phLevel = 13):
-            //         phColor = "#63459D";
-            //         break;
-            //     case (phLevel = 15):
-            //         phColor = "#462C83";
-            //     }
-            //     console.log(phColor);
 
 // third donut
 const dataDoughnut2 = {

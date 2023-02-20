@@ -16,7 +16,7 @@ header('Content-Type: application/json');
 
 require_once('conn.php');
 
-$sqlQuery = "SELECT watertemp, date FROM waterreporttbl WHERE DATE LIKE CURRENT_DATE ORDER BY time desc LIMIT 1";
+$sqlQuery = "SELECT watertemp, date, status FROM waterreporttbl WHERE DATE LIKE CURRENT_DATE ORDER BY time desc LIMIT 1";
 
 $result = mysqli_query($conn,$sqlQuery);
 
