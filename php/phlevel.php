@@ -191,7 +191,7 @@
             <!-- Replace with your content -->
             <h1 class="text-2xl font-bold text-white mb-5">pH Report</h1>
             <div class="flex sm:flex-row flex-col w-full">
-                <div id="phBg" class="bg-[#118128] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow[1] sm:mr-4 sm:mb-0 mb-4">
+                <div id="phBg" class="bg-style px-10 py-5 rounded-[20px] border-2 border-slate-50 grow[1] sm:mr-4 sm:mb-0 mb-4">
                     <div class="flex items-center justify-center mb-2">
                         <div class="mr-4">
                             <svg class="w-[3rem]" viewBox="0 0 92 113" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -204,14 +204,14 @@
                                         while($row = mysqli_fetch_array($table))
                                         {
                                             ?>
-                        <h3 class="text-2xl font-bold text-white text-center sm:text-center"><?php echo $row["phvalue"]; ?></h3>
+                        <h3 id="phValue" class="text-2xl font-bold text-white text-center sm:text-center"><?php echo $row["phvalue"]; ?></h3>
 
                        
                     </div>
                     <h5 class="text-center text-white">pH Value</h5>
                     
                 </div>
-                <div class="bg-[#0AB8B6] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow">
+                <div class="bg-style px-10 py-5 rounded-[20px] border-2 border-slate-50 grow">
                     <div class="flex flex-col justify-between h-full">
                         <div class="flex items-center mb-2 grow">
                             <h1 class="text-[2rem] text-white flex mx-auto"><?php echo $row["phstatus"]; ?></h1>
@@ -296,9 +296,40 @@
 </div>
 <script>
 $(document).ready(function () {
-
+    showBg();
 });
+
 function showBg() {
+    let phValue = $('#phValue').text();
+    if (phValue > 0 && phValue <= 1) {
+            $('.bg-style').addClass("bg-[#EE1C25]")
+        } else if (phValue > 1 && phValue <= 2) {
+            $('.bg-style').addClass("bg-[#F26724]")
+        } else if (phValue > 2 && phValue <= 3) {
+            $('.bg-style').addClass("bg-[#F8C511]")
+        } else if (phValue > 3 && phValue <= 4) {
+            $('.bg-style').addClass("bg-[#F5ED1C]")
+        } else if (phValue > 4 && phValue <= 5) {
+            $('.bg-style').addClass("bg-[#B5D333]")
+        } else if (phValue > 5 && phValue <= 5) {
+            $('.bg-style').addClass("bg-[#41B700]")
+        } else if (phValue > 6 && phValue <= 7) {
+            $('.bg-style').addClass("bg-[#019E00]")
+        } else if (phValue > 7 && phValue <= 8) {
+            $('.bg-style').addClass("bg-[#01AF60]")
+        } else if (phValue > 8 && phValue <= 9) { 
+            $('.bg-style').addClass("bg-[#01BEBE]")
+        } else if (phValue > 9 && phValue <= 10) {
+            $('.bg-style').addClass("bg-[#1488D0]")
+        } else if (phValue > 10 && phValue <= 11) {
+            $('.bg-style').addClass("bg-[#004FE0]")
+        } else if (phValue > 11 && phValue <= 12) {
+            $('.bg-style').addClass("bg-[#5A51A2]")
+        } else if (phValue > 12 && phValue <= 13) {
+            $('.bg-style').addClass("bg-[#63459D]")
+        }  else if (phValue > 13 && phValue <= 14) {
+            $('.bg-style').addClass("bg-[#48249F]")
+        } 
     {
         $.post("phData.php",
           function (data) {
@@ -306,11 +337,11 @@ function showBg() {
             var dbstatus = [];
 
             for (var i in data) {
-                  // name.push(data[i].student_name);
                   pHValue.push(data[i].phvalue);
-                  dbstatus.push(data[i].dbstatus)
-                  
+                  dbstatus.push(data[i].dbstatus);
               }
+              console.log(pHValue);
+              console.log(dbstatus);
           })
     }
 }
