@@ -168,8 +168,8 @@
     <div class="max-w-7xl mx-auto">
             <!-- Replace with your content -->
             <h1 class="text-2xl font-bold text-white mb-5">Temperature Report</h1>
-            <div class="flex sm:flex-row flex-col w-full">
-                <div class="bg-[#118128] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow[1] sm:mr-4 sm:mb-0 mb-4">
+            <div class="flex sm:flex-row flex-col w-full gap-6">
+                <div class="bg-[#118128] px-10 py-8 rounded-[20px] border-2 border-slate-50 grow[1] sm:mb-0 mb-4">
                     <div class="flex items-center justify-center mb-2">
                         <div class="mr-4">
                             
@@ -184,23 +184,30 @@
                                         while($row = mysqli_fetch_array($table))
                                         {
                                             ?>
-                        <h3 class="text-2xl font-bold text-white text-center sm:text-center"><?php echo $row["watertemp"]; ?></h3>
+                        <h3 class="text-2xl font-bold text-white text-center  sm:text-center"><?php echo $row["watertemp"]; ?></h3>
                     </div>
                     <h5 class="text-center text-white">Water Temperature</h5>
                     
                 </div>
+
+
                 <div class="bg-[#0AB8B6] px-10 py-5 rounded-[20px] border-2 border-slate-50 grow">
                     <div class="flex flex-col justify-between h-full">
                         <div class="flex items-center mb-2 grow">
                     
-                            <h1 class="text-2xl text-white flex mx-auto"><?php echo $row["status"]; ?></h1>
+                            <h1 class="text-[2rem] text-white font-extrabold leading-10 flex mx-auto"><?php echo $row["status"]; ?></h1>
                                         
                             <?php } 
                             ?>
                         </div>
-                        <h5 class="text-center text-white">Diagnosis</h5>
+                        <h5 class="text-center text-white">Status</h5>
                     </div>
                 </div>
+
+
+
+
+
                 <div>
 
                 </div>

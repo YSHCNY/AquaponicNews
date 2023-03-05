@@ -2,7 +2,7 @@
 date_default_timezone_set('Asia/Manila');
 $date = date('m-d-y');
 
-
+include 'autoUpdate.php';
 ?>
 
 <!DOCTYPE html>
@@ -156,13 +156,16 @@ $date = date('m-d-y');
     </aside>
 
     <main id="content" class="flex-1 p-6 lg:px-8">
-        <div class="">
+        <div class="mr-4">
             <!-- Replace with your content -->
             <h1 class="text-2xl text-slate-50 my-4 font-bold">Dashboard</h1>
             <h1 class="text-l text-slate-50 my-4 font-bold">Current status today (<?php echo $date; ?>)</h1>
+
+
             <div class="flex lg:flex-row flex-col justify-around justify-center">
-                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center w-inherit mx-3 my-3 px-5">
-                   <!-- ph level -->
+                    <!-- ph level -->
+                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center  my-3 px-12">
+ 
                     <div class="absolute top-[45%] left-[50%] translate-y-[-45%] translate-x-[-50%]">
                         <div class="flex flex-col items-center">
                             <svg class="w-[55px]" viewBox="0 0 93 114" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -177,12 +180,16 @@ $date = date('m-d-y');
                     <canvas class="p-5 max-w-[300px]" id="chartDoughnut"></canvas>
                     </div>
 
-                    <h1 id="status" class = "phtext text-2xl font-bold"></h1>
+                    <h1 id="status" class = "phtext text-2xl font-bold">No Data</h1>
                     <!-- dbstatus coloumn from database should be the content in the first h1 -->
-                    <h1 class = "text-black font-bold text-l pb-[5px]">pH Level</h1>
+                  
+                    <h1 id = "phstatus" class = "text-black font-bold text-l pb-[5px]">---</h1>
+                    
                 </div>
-                <!-- temperature -->
-                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center mx-3 my-3 px-5">
+
+
+                   <!-- temperature -->
+                   <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center  my-3 px-12">
                     <div class="absolute top-[45%] left-[50%] translate-y-[-45%] translate-x-[-50%]">
                         <div class="flex flex-col items-center">
                             <svg class="w-[65px]" viewBox="0 0 113 121" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -198,30 +205,18 @@ $date = date('m-d-y');
                     <canvas class="p-5 max-w-[300px]" id="chartDoughnut2"></canvas>
                     </div>
 
-                    <h1 id="temp" class =" text-2xl font-bold">awaw</h1>
+                    <h1 id="temp" class =" text-2xl font-bold">No Data</h1>
                     <!-- dbstatus coloumn from database should be the content in the first h1 -->
                     <h1 class = "text-black font-bold text-l pb-[5px]">Water Temperature</h1>
                 </div>
 
-                <!-- water level -->
-                <div class="bg-white shadow-2xl rounded-2xl overflow-hidden relative flex flex-col items-center mx-3 my-3 px-5">
-                    <div class="absolute top-[45%] left-[50%] translate-y-[-45%] translate-x-[-50%]">
-                        <div class="flex flex-col items-center">
-                            <svg class="w-[60px]" viewBox="0 0 107 108" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.248901 0.510498H106.787V107.049H0.248901V0.510498Z" fill="white" fill-opacity="0.01"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M53.5181 98.1708C71.9055 98.1708 86.8114 83.2649 86.8114 64.8775C86.8114 33.8038 53.5181 9.38873 53.5181 9.38873C53.5181 9.38873 20.2249 33.8038 20.2249 64.8775C20.2249 83.2649 35.1307 98.1708 53.5181 98.1708Z" stroke="#1D419F" stroke-width="6.35241" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M20.2249 64.8775C20.2249 83.2649 35.1307 98.1707 53.5181 98.1707C71.9055 98.1707 86.8114 83.2649 86.8114 64.8775C86.8114 64.8775 66.8354 71.5361 53.5181 64.8775C40.2008 58.2188 20.2249 64.8775 20.2249 64.8775Z" fill="white" stroke="#1D419F" stroke-width="6.35241" stroke-linejoin="round"/>
-                            </svg>
-                            <p class="text-dark font-bold text-3xl">80%</p>
-                        </div>
-                    </div>
-                    <!-- <div class="py-3 px-5 bg-gray-50">Doughnut chart</div> -->
-                    <div>
-                    <canvas class="p-5 max-w-[300px]" id="chartDoughnut3"></canvas>
-                    </div>
 
-                    
-                </div>
+
+
+
+             
+
+              
             </div>
             
             <!-- /End replace -->
@@ -243,15 +238,18 @@ function phDonutShow()
           {
               var pHValue = [];
               var dbstatus = [];
+              var phstatus = [];
             
             
               for (var i in data) {
                   // name.push(data[i].student_name);
                   pHValue.push(data[i].phvalue);
                   dbstatus.push(data[i].dbstatus)
+                  phstatus.push(data[i].phstatus)
                   
               }
               $('#status').text(dbstatus[0]);
+              $('#phstatus').text(phstatus[0]);
               var maxpH = 14;
               let mark = maxpH - pHValue[0];
               pHValue.push(mark);

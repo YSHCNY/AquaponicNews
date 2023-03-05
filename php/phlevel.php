@@ -190,8 +190,8 @@
         <div class="max-w-7xl mx-auto">
             <!-- Replace with your content -->
             <h1 class="text-2xl font-bold text-white mb-5">pH Report</h1>
-            <div class="flex sm:flex-row flex-col w-full">
-                <div id="phBg" class="bg-style px-10 py-5 rounded-[20px] border-2 border-slate-50 grow[1] sm:mr-4 sm:mb-0 mb-4">
+            <div class="flex sm:flex-row flex-col w-full gap-6">
+                <div id="phBg" class="bg-style px-10 py-8 rounded-[20px] border-2 border-slate-50 grow[1] sm:mb-0 mb-4">
                     <div class="flex items-center justify-center mb-2">
                         <div class="mr-4">
                             <svg class="w-[3rem]" viewBox="0 0 92 113" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -211,17 +211,32 @@
                     <h5 class="text-center text-white">pH Value</h5>
                     
                 </div>
+
+
                 <div class="bg-style px-10 py-5 rounded-[20px] border-2 border-slate-50 grow">
                     <div class="flex flex-col justify-between h-full">
                         <div class="flex items-center mb-2 grow">
-                            <h1 class="text-[2rem] text-white flex mx-auto"><?php echo $row["phstatus"]; ?></h1>
-                            <?php } ?>
+                            <h1 class="text-[2rem] text-white font-extrabold leading-10 flex mx-auto"><?php echo $row["dbstatus"]; ?></h1>
+                          
                         </div>
-                        <h5 class="text-center text-white">Diagnosis</h5>
+                        <h5 class="text-center text-white">Status</h5>
                     </div>
                 </div>
-                <div>
-<!-- problem undone -->
+
+
+
+                <div class="bg-styles px-10 py-5 rounded-[20px] border-2 border-slate-50 grow">
+                    <div class="flex flex-col justify-between h-full">
+                        <div class="flex items-center mb-2 grow">
+                            <h1 id="DiagnosisID" class="text-[2rem] text-white font-extrabold leading-10 flex mx-auto"><?php echo $row["diagnosis"]; ?></h1>
+                            <?php } ?>
+                        </div>
+                        <h5 class="text-center text-white">Action</h5>
+                    </div>
+                </div>
+            
+
+                
                 </div>
             </div>
          
@@ -248,7 +263,7 @@
             <div class="overflow-x-hidden shadow-2xl rounded-md">
 
             <div class="px-5 pt-3">
-                <h1 class="text-2xl text-dark font-bold mb-4">Hourly Report</h1>
+                <h1 class="text-2xl text-dark font-bold mb-4">Report History</h1>
             </div>
                 <table class="w-full text-md text-left text-[#00000] dark:text-[#00000]">
                     <thead class=" text-md text-[#00000] uppercase bg-[#D9D9D9]  dark:text-[#00000]">
@@ -272,9 +287,10 @@
                                         {
                                     ?>
                                         <tr class="flex table-row mb-2 ">
-                                            <td class="border-grey-light border p-3 "><?php echo $row["phvalue"]; ?></td>
+                                           
                                             <td class="border-grey-light border p-3"><?php echo $row["date"]; ?></td>
                                             <td class="border-grey-light border p-3"><?php echo $row["time"]; ?></td>
+                                            <td class="border-grey-light border p-3 "><?php echo $row["phvalue"]; ?></td>
                                            
                                            
                                         </tr>
@@ -297,10 +313,15 @@
 <script>
 $(document).ready(function () {
     showBg();
+ 
 });
 
+
+
 function showBg() {
+
     let phValue = $('#phValue').text();
+
     if (phValue > 0 && phValue <= 1) {
             $('.bg-style').addClass("bg-[#EE1C25]")
         } else if (phValue > 1 && phValue <= 2) {
@@ -330,18 +351,29 @@ function showBg() {
         }  else if (phValue > 13 && phValue <= 14) {
             $('.bg-style').addClass("bg-[#48249F]")
         } 
+
+
+        let DiagnosisID = $('#DiagnosisID').text();
+        if (DiagnosisID == "Change Water!" ) {
+            $('.bg-styles').addClass("bg-[CRIMSON]")
+        } else {
+            $('.bg-styles').addClass("bg-[#35530A]")
+        }
     {
         $.post("phData.php",
           function (data) {
             var pHValue = [];
             var dbstatus = [];
+            var DiagnosisID = [];
 
             for (var i in data) {
                   pHValue.push(data[i].phvalue);
                   dbstatus.push(data[i].dbstatus);
+                  DiagnosisID.push(data[i].diagnosis);
               }
               console.log(pHValue);
               console.log(dbstatus);
+              console.log(DiagnosisID)
           })
     }
 }

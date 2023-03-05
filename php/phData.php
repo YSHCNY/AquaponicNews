@@ -16,7 +16,7 @@ header('Content-Type: application/json');
 
 require_once('conn.php');
 
-$sqlQuery = "SELECT phvalue, dbstatus, date FROM phreport_tbl WHERE DATE LIKE CURRENT_DATE ORDER BY time desc LIMIT 1";
+$sqlQuery = "SELECT phvalue, dbstatus,diagnosis, phstatus, date FROM phreport_tbl WHERE DATE LIKE CURRENT_DATE ORDER BY time desc LIMIT 1";
 
 $result = mysqli_query($conn,$sqlQuery);
 
