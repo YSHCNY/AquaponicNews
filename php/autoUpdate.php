@@ -24,7 +24,7 @@
 
        while($row = $result-> fetch_assoc()){         
         if ($sql >= 0){                                      
-            $conn->query("UPDATE `phreport_tbl` set dbstatus = 'ACIDIC',`diagnosis` = 'Change Water!' WHERE `phvalue` BETWEEN 0.1 and 5.9 ");
+            $conn->query("UPDATE `phreport_tbl` set dbstatus = 'ACIDIC',`diagnosis` = 'Change Water!', sensor = 'PH' WHERE `phvalue` BETWEEN 0.1 and 5.9 ");
 
            
         }
@@ -36,7 +36,7 @@
 
        while($row2 = $result2-> fetch_assoc()){  
         if ($sql2 >= 0){
-            $conn->query("UPDATE `phreport_tbl` set  dbstatus = 'ALKALINE',`diagnosis` = 'Change Water!' WHERE `phvalue` BETWEEN 9.0 and 14 ");
+            $conn->query("UPDATE `phreport_tbl` set  dbstatus = 'ALKALINE',`diagnosis` = 'Change Water!', sensor = 'PH' WHERE `phvalue` BETWEEN 9.0 and 14 ");
 
             
            
@@ -50,7 +50,7 @@
 
        while($row3 = $result3-> fetch_assoc()){  
         if ($sql3 >= 0){
-            $conn->query("UPDATE `phreport_tbl` set  dbstatus = 'NEUTRAL',`diagnosis` = 'Nothing' WHERE `phvalue` BETWEEN 6.0 and 8.8 ");
+            $conn->query("UPDATE `phreport_tbl` set  dbstatus = 'NEUTRAL',`diagnosis` = 'Nothing', sensor = 'PH' WHERE `phvalue` BETWEEN 6.0 and 8.8 ");
 
            
 
