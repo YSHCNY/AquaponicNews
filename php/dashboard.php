@@ -1,10 +1,3 @@
-<?php
-date_default_timezone_set('Asia/Manila');
-$date = date('m-d-y');
-
-include 'autoUpdate.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,49 +6,15 @@ include 'autoUpdate.php';
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AS | Dashboard </title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="dist/output.css">
-  <!-- <script src="./tailwind3.js"></script> -->
+  <link rel="stylesheet" href="../css/output.css">
   
-</head>
-
-
-<style>
-    #sidebar {
-    --tw-translate-x: -100%;
-}
-#menu-close-icon {
-    display: none;
-}
-
-#menu-open:checked ~ #sidebar {
-    --tw-translate-x: 0;
-}
-#menu-open:checked ~ * #mobile-menu-button {
-    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
-}
-#menu-open:checked ~ * #menu-open-icon {
-    display: none;
-}
-#menu-open:checked ~ * #menu-close-icon {
-    display: block;
-}
-
-.bgcolor {
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 72%, #212127 72%);
-    }
-
-
-@media (min-width: 768px) {
-    #sidebar {
-        --tw-translate-x: 0;
-    }
-}
-
-</style>
-
-
 <body class="bgcolor">
+<?php
+date_default_timezone_set('Asia/Manila');
+$date = date('m-d-y');
+
+include 'autoUpdate.php';
+?>
 <div class="relative min-h-screen md:flex" data-dev-hint="container">
     <input type="checkbox" id="menu-open" class="hidden" />
 
@@ -414,44 +373,9 @@ function phDonutShow()
                 });
             }
         }
-
-// third donut
-const dataDoughnut2 = {
-    labels: ["JavaScript", "Python", "Ruby"],
-    datasets: [
-      {
-        label: "My First Dataset",
-        data: [300, 50],
-        backgroundColor: [
-          "#1D419F",
-          "#D9D9D9",
-        ],
-        hoverOffset: 4,
-        cutout: "90%",
-      },
-    ],
-  };
-
-  const configDoughnut2 = {
-    type: "doughnut",
-    data: dataDoughnut2,
-    options: {
-        plugins: {
-            legend: {
-                display: false
-            }
-        },
-        events: [],
-    },
-  };
-
-  var chartBar = new Chart(
-    document.getElementById("chartDoughnut3"),
-    configDoughnut2
-  );
 </script>
 
-<script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+<!-- <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script> -->
 </body>
 
 </html>
