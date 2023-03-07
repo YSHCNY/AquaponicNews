@@ -22,9 +22,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AS | Water Temperature Report</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="dist/output.css">
-  <!-- <script src="./tailwind3.js"></script> -->
+  <link rel="stylesheet" href="../css/output.css">
   
 </head>
 
@@ -91,7 +89,7 @@
 
     <aside id="sidebar" class="md:ml-[1rem] border-2 border-slate-50 rounded-lg ml-[-1rem] md:border-r-2 md:border-r-white md:rounded-r-lg bg-[#212127]  text-gray-100 md:w-64 w-3/4 space-y-6 pt-2 px-0 absolute inset-y-0 left-0 transform md:relative md:translate-x-0 transition duration-200 ease-in-out  md:flex md:flex-col md:justify-between overflow-y-auto" data-dev-hint="sidebar; px-0 for frameless; px-2 for visually inset the navigation">
         <div class="flex flex-col space-y-6" data-dev-hint="optional div for having an extra footer navigation">
-            <a href="dashboard.php" class="text-white flex items-center space-x-2 px-4" title="Aquaponic System Logo">
+            <a href="index.php" class="text-white flex items-center space-x-2 px-4" title="Aquaponic System Logo">
               <!-- LOGOs -->
               <div class="py-1.5 pl-6 mt-1 flex items-center justify-between rounded-md ">
 
@@ -111,7 +109,7 @@
             </a>
 
             <nav data-dev-hint="main navigation">
-                <a href="dashboard.php" class="flex mt-3 items-center  transition duration-200  hover:text-white">
+                <a href="index.php" class="flex mt-3 items-center  transition duration-200  hover:text-white">
                 <!-- DASHBOARD -->
 
                 <div class=" flex flex-col items-center mx-auto px-8 py-5 hover:bg-[#303039] rounded-md duration-300 cursor-pointer  ">
