@@ -91,7 +91,7 @@
 
     <aside id="sidebar" class="md:ml-[1rem] border-2 border-slate-50 rounded-lg ml-[-1rem] md:border-r-2 md:border-r-white md:rounded-r-lg bg-[#212127]  text-gray-100 md:w-64 w-3/4 space-y-6 pt-2 px-0 absolute inset-y-0 left-0 transform md:relative md:translate-x-0 transition duration-200 ease-in-out  md:flex md:flex-col md:justify-between overflow-y-auto" data-dev-hint="sidebar; px-0 for frameless; px-2 for visually inset the navigation">
         <div class="flex flex-col space-y-6" data-dev-hint="optional div for having an extra footer navigation">
-            <a href="dashboard.php" class="text-white flex items-center space-x-2 px-4" title="Aquaponic System Logo">
+            <a href="index.php" class="text-white flex items-center space-x-2 px-4" title="Aquaponic System Logo">
               <!-- LOGOs -->
               <div class="py-1.5 pl-6 mt-1 flex items-center justify-between rounded-md ">
 
@@ -111,7 +111,7 @@
             </a>
 
             <nav data-dev-hint="main navigation">
-                <a href="dashboard.php" class="flex mt-3 items-center  transition duration-200  hover:text-white">
+                <a href="index.php" class="flex mt-3 items-center  transition duration-200  hover:text-white">
                 <!-- DASHBOARD -->
 
                 <div class=" flex flex-col items-center mx-auto px-8 py-5 hover:bg-[#303039] rounded-md duration-300 cursor-pointer  ">
@@ -225,6 +225,7 @@
             <div class="px-5 pt-3">
                 <h1 class="text-2xl text-dark font-bold mb-4">Hourly Report</h1>
             </div>
+            <div class="h-[55vh] overflow-y-auto">   
                 <table class="w-full text-md text-left text-[#00000] dark:text-[#00000]">
                     <thead class=" text-md text-[#00000] uppercase bg-[#D9D9D9]  dark:text-[#00000]">
                         <tr>
@@ -237,29 +238,29 @@
                             <th scope="col" class="px-6 py-3">
                                 Water Temperature
                             </th>
-                         
-                        </tr>
+                        
+                    </tr>
                     </thead>
                     <tbody>
-                        <?php
-                                        $table = mysqli_query($conn, "SELECT * FROM waterreporttbl ORDER BY DATE AND TIME DESC"); //nodemcu_ldr_table = Youre_table_name
-                                        while($row = mysqli_fetch_array($table))
-                                        {
-                                    ?>
-                                        <tr class="flex table-row mb-2 ">
-                                            <td class="border-grey-light border p-3"><?php echo $row["date"]; ?></td>
-                                            <td class="border-grey-light border p-3"><?php echo $row["time"]; ?></td>
-                                            <td class="border-grey-light border p-3 "><?php echo $row["watertemp"]; ?></td>
-                                           
-                                        </tr>
-                                    
-                                    </tbody>
-                            
-                                    <?php
-                                        }
-                                    ?>
+                    <?php
+                                    $table = mysqli_query($conn, "SELECT * FROM waterreporttbl ORDER BY DATE AND TIME DESC"); //nodemcu_ldr_table = Youre_table_name
+                                    while($row = mysqli_fetch_array($table))
+                                    {
+                                ?>
+                                    <tr class="flex table-row mb-2 ">
+                                        <td class="border-grey-light border p-3"><?php echo $row["date"]; ?></td>
+                                        <td class="border-grey-light border p-3"><?php echo $row["time"]; ?></td>
+                                        <td class="border-grey-light border p-3 "><?php echo $row["watertemp"]; ?></td>
+                                        
+                                    </tr>
+                                
+                    </tbody>
+                        
+                                <?php
+                                    }
+                                ?>
                 </table>
-
+            </div>
             </div>
            </section>
 
