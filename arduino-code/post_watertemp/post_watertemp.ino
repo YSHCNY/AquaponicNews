@@ -10,13 +10,13 @@
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);// Pass the oneWire reference to Dallas Temperature.
 
-const char *ssid = "wifi ni lydia"; // Wifi Name
-const char *password = "salvador12345"; // Wifi Password
+const char *ssid = "VirusConnector"; // Wifi Name
+const char *password = "Br@14344"; // Wifi Password
 
-const char *host = "http://192.168.12.111"; // IP Address
+const char *host = "http://192.168.1.17"; // IP Address
 
 void setup() {
-  pinMode(LED_BUILTIN, OUTPUT); 
+  pinMode(LED_BUILTIN, OUTPUT);   
   pinMode(D0, OUTPUT); 
   pinMode(D1, OUTPUT); 
   pinMode(D2, OUTPUT); 
@@ -48,15 +48,16 @@ void setup() {
 void loop() {
   HTTPClient http;
   WiFiClient client;
-
+  
   String postData, Link, path;
-  path = "/AquaponicNews-1/php/post.php";  
-  postData = "watertemp=" + WTsensorValue();
+  path = "/AquaponicNews/php/post.php";  
+  float ph = random(0.00, 15.00);
+  postData = "watertemp=" + WTsensorValue() + "&phvalue=" + String(ph);
   Link = host + path;
   
   http.begin(client, Link);
   http.addHeader("Content-Type", "application/x-www-form-urlencoded"); 
-
+  
   int httpCode = http.POST(postData);
   String payload = http.getString();
   

@@ -103,7 +103,7 @@
                   phColor = "#B5D333";
                       $(".phLogo").attr('fill', phColor);
                       $(".phtext").attr("style", 'color:#B5D333');
-                } else if (phValue > 5 && phValue <= 5) {
+                } else if (phValue > 5 && phValue <= 6) {
                   phColor = "#41B700";
                       $(".phLogo").attr('fill', phColor);
                       $(".phtext").attr("style", 'color:#41B700');
@@ -182,7 +182,7 @@
                   );
                   
                   // console.log(chartBar.dataDoughnut);
-                  chartBar.update();
+                  // chartBar.update();
             });
         }
     }

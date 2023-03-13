@@ -46,6 +46,17 @@
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+  }
+  
+  if (!empty($_POST['phvalue'])) {
+    $PHTemp = $_POST["phvalue"];
+    $sql = "INSERT INTO phreport_tbl (phvalue, date, time) VALUES ('".$PHTemp."', '".$d."', '".$t."')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "OK";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
     $conn->close();
   }
