@@ -10,10 +10,10 @@
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);// Pass the oneWire reference to Dallas Temperature.
 
-const char *ssid = "VirusConnector"; // Wifi Name
-const char *password = "Br@14344"; // Wifi Password
+const char *ssid = "wifi ni lydia"; // Wifi Name
+const char *password = "salvador12345"; // Wifi Password
 
-const char *host = "http://192.168.1.17"; // IP Address
+const char *host = "http://192.168.12.111"; // IP Address
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);   
@@ -51,7 +51,7 @@ void loop() {
   
   String postData, Link, path;
   path = "/AquaponicNews/php/post.php";  
-  float ph = random(0.00, 15.00);
+  float ph = random(0.00, 1500.00) / 100.00;
   postData = "watertemp=" + WTsensorValue() + "&phvalue=" + String(ph);
   Link = host + path;
   
@@ -63,15 +63,16 @@ void loop() {
   
   Serial.println(httpCode);
   Serial.println(payload);
-  Serial.println(WTsensorValue());
+  Serial.println(postData);
+
   http.end();
-  delay(5000);
+  delay(10000);
 }
 
 String WTsensorValue() {
   sensors.requestTemperatures();    
-  float temp = sensors.getTempCByIndex(0);
-  delay(500);
+  // float temp = sensors.getTempCByIndex(0);
+  float temp = random(2000.00, 4000.00) / 100.00;
   String tempSend = String(temp);
   return tempSend;
 }

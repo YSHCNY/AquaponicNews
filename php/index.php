@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php   include 'autoUpdate.php'; ?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,7 @@
       startRefresh();
     });
     function startRefresh() {
-        setTimeout(startRefresh,4000);
+        setTimeout(startRefresh,5000);
         $.get('dashboard.php', function(data) {
             $('#content').html(data);    
         });
