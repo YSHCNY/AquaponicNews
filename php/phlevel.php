@@ -175,12 +175,12 @@
 
 
         </svg>
-    <span class="text-[1rem] mt-2 mx-auto text-gray-200">TEMPERATURE REPORT</span>
-        </div>
-      
-                </a>
-            </nav>
-        </div>
+        <span class="text-[1rem] mt-2 mx-auto text-gray-200">TEMPERATURE REPORT</span>
+            </div>
+        
+                    </a>
+                </nav>
+            </div>
 
      
     </aside>
@@ -238,7 +238,7 @@
 
                 
                 </div>
-            </div>
+            
          
            <!-- TABLE ////////////////////////////////////////////// -->
 
@@ -265,7 +265,7 @@
             <div class="px-5 pt-3">
                 <h1 class="text-2xl text-dark font-bold mb-4">Report History</h1>
             </div>
-            <div class="h-[55vh] overflow-y-auto">
+            <div class="h-[50vh] overflow-y-auto">
                 <table class="w-full text-md text-left text-[#00000] dark:text-[#00000]">
                     <thead class=" text-md text-[#00000] uppercase bg-[#D9D9D9]  dark:text-[#00000]">
                         <tr>
@@ -283,7 +283,7 @@
                     </thead>
                     <tbody>
                         <?php
-                                        $table = mysqli_query($conn, "SELECT * FROM phreport_tbl ORDER BY DATE AND TIME DESC"); //nodemcu_ldr_table = Youre_table_name
+                                        $table = mysqli_query($conn, "SELECT * FROM phreport_tbl ORDER BY date DESC, time DESC;"); //nodemcu_ldr_table = Youre_table_name
                                         while($row = mysqli_fetch_array($table))
                                         {
                                     ?>
@@ -304,6 +304,7 @@
                     </table>
                 </div>
 
+            </div>
             </div>
            </section>
 
