@@ -68,11 +68,11 @@
           
             $conn->query("UPDATE `phreport_tbl` set `phstatus` = 'Acid Death Point' WHERE `phvalue` BETWEEN 0.1 and 3.9 ");
 
-            $conn->query("UPDATE `phreport_tbl` set `phstatus` = 'No Reproduction & Slow Growth' WHERE `phvalue` BETWEEN 4.0 and 6.4 ");
+            $conn->query("UPDATE `phreport_tbl` set `phstatus` = 'No Reproduction & Slow Growth' WHERE `phvalue` BETWEEN 3.99 and 6.99 ");
 
-            $conn->query("UPDATE `phreport_tbl` set `phstatus` = 'Desirable Range of pH' WHERE `phvalue` BETWEEN 6.5  and 8.9 ");
+            $conn->query("UPDATE `phreport_tbl` set `phstatus` = 'Desirable Range of pH' WHERE `phvalue` BETWEEN 6.5  and 8.99 ");
 
-            $conn->query("UPDATE `phreport_tbl` set `phstatus` = 'No Reproduction & Slow Growth' WHERE `phvalue` BETWEEN 9.0 and 10.0");
+            $conn->query("UPDATE `phreport_tbl` set `phstatus` = 'No Reproduction & Slow Growth' WHERE `phvalue` BETWEEN 9.0 and 10.99");
 
             $conn->query("UPDATE `phreport_tbl` set `phstatus` = 'Alkaline Death Point' WHERE `phvalue` BETWEEN 11.0 and 14.0");
 
