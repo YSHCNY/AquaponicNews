@@ -51,7 +51,7 @@ void loop() {
   
   String postData, Link, path;
   path = "/AquaponicNews/php/post.php";  
-  float ph = random(0.00, 1500.00) / 100.00;
+  float ph = random(0.00, 1400.00) / 100.00;
   postData = "watertemp=" + WTsensorValue() + "&phvalue=" + String(ph);
   Link = host + path;
   

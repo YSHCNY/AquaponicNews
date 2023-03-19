@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php   include 'autoUpdate.php'; ?>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -109,7 +109,7 @@
 
 
         </svg>
-    <span class="text-[1rem] mt-2 mx-auto text-gray-200">TEMPERATURE REPORT</span>
+    <span class="text-[1rem] mt-2 mx-auto text-gray-200 text-center">TEMPERATURE REPORT</span>
         </div>
       
                 </a>
