@@ -25,66 +25,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AS | pH Report</title>
-  <link rel="stylesheet" href="dist/output.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/output.css">
   <script src="../js/jquery.min.js"></script>
-  <!-- <script src="./tailwind3.js"></script> -->
-  
 </head>
-
-
-<style>
-
-  html,
-  body {
-    height: 100%;
-  }
-
-  @media (min-width: 640px) {
-    table {
-      display: inline-table !important;
-    }
-
-    thead tr:not(:first-child) {
-      display: none;
-    }
-  }
-
- 
-    #sidebar {
-    --tw-translate-x: -100%;
-}
-#menu-close-icon {
-    display: none;
-}
-
-#menu-open:checked ~ #sidebar {
-    --tw-translate-x: 0;
-}
-#menu-open:checked ~ * #mobile-menu-button {
-    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
-}
-#menu-open:checked ~ * #menu-open-icon {
-    display: none;
-}
-#menu-open:checked ~ * #menu-close-icon {
-    display: block;
-}
-
-.bgcolor {
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 72%, #212127 72%);
-    }
-
-
-@media (min-width: 768px) {
-    #sidebar {
-        --tw-translate-x: 0;
-    }
-}
-
-</style>
-
-
 <body class="bgcolor bg-no-repeat">
 <div class="relative min-h-screen md:flex" data-dev-hint="container">
     <input type="checkbox" id="menu-open" class="hidden" />
@@ -265,7 +208,7 @@
             <div class="px-5 pt-3">
                 <h1 class="text-2xl text-dark font-bold mb-4">Report History</h1>
             </div>
-            <div class="h-[50vh] overflow-y-auto">
+            <div class="overflow-y-auto" style="height: 50vh">
                 <table class="w-full text-md text-left text-[#00000] dark:text-[#00000]">
                     <thead class=" text-md text-[#00000] uppercase bg-[#D9D9D9]  dark:text-[#00000]">
                         <tr>

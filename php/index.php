@@ -13,7 +13,7 @@
       startRefresh();
     });
     function startRefresh() {
-        setTimeout(startRefresh,5000);
+        // setTimeout(startRefresh,2500);
         $.get('dashboard.php', function(data) {
             $('#content').html(data);    
         });

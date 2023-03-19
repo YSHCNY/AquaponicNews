@@ -2,13 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  height: 100%;
+}
 #sidebar {
     --tw-translate-x: -100%;
 }
 #menu-close-icon {
     display: none;
 }
-
 #menu-open:checked ~ #sidebar {
     --tw-translate-x: 0;
 }
@@ -32,3 +35,13 @@
         --tw-translate-x: 0;
     }
 }
+@media (min-width: 640px) {
+    table {
+      display: inline-table !important;
+    }
+  
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
+

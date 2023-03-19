@@ -12,58 +12,16 @@
                             die("Connection failed !!!");
                         } 
                     ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AS | Water Temperature Report</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="dist/output.css">
-  <!-- <script src="./tailwind3.js"></script> -->
-  
+  <link rel="stylesheet" href="../css/output.css">
+  <script src="../js/jquery.min.js"></script>
 </head>
-
-
-<style>
-    #sidebar {
-    --tw-translate-x: -100%;
-}
-#menu-close-icon {
-    display: none;
-}
-
-#menu-open:checked ~ #sidebar {
-    --tw-translate-x: 0;
-}
-#menu-open:checked ~ * #mobile-menu-button {
-    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
-}
-#menu-open:checked ~ * #menu-open-icon {
-    display: none;
-}
-#menu-open:checked ~ * #menu-close-icon {
-    display: block;
-}
-
-.bgcolor {
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.05) 72%, #212127 72%);
-    }
-
-
-@media (min-width: 768px) {
-    #sidebar {
-        --tw-translate-x: 0;
-    }
-}
-
-</style>
-
-
 <body class="bgcolor">
 <div class="relative min-h-screen md:flex" data-dev-hint="container">
     <input type="checkbox" id="menu-open" class="hidden" />
@@ -76,9 +34,7 @@
 
     <header class="bg-[#212127] text-gray-100 flex justify-between md:hidden" data-dev-hint="mobile menu bar">
         <a href="#" class="block p-4 text-white font-bold whitespace-nowrap truncate">
-           
         </a>
-
         <label for="menu-open" id="mobile-menu-button" class="m-2 p-2 focus:outline-none hover:text-white hover:bg-gray-700 rounded-md">
             <svg id="menu-open-icon" class="h-6 w-6 transition duration-200 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -88,7 +44,6 @@
             </svg>
         </label>
     </header>
-
     <aside id="sidebar" class="md:ml-[1rem] border-2 border-slate-50 rounded-lg ml-[-1rem] md:border-r-2 md:border-r-white md:rounded-r-lg bg-[#212127]  text-gray-100 md:w-64 w-3/4 space-y-6 pt-2 px-0 absolute inset-y-0 left-0 transform md:relative md:translate-x-0 transition duration-200 ease-in-out  md:flex md:flex-col md:justify-between overflow-y-auto" data-dev-hint="sidebar; px-0 for frameless; px-2 for visually inset the navigation">
         <div class="flex flex-col space-y-6" data-dev-hint="optional div for having an extra footer navigation">
             <a href="index.php" class="text-white flex items-center space-x-2 px-4" title="Aquaponic System Logo">
@@ -216,16 +171,13 @@
            <!-- TABLE ////////////////////////////////////////////// -->
 
            <!-- DB CONNECTION -->
-      
-
-       
            <section class="my-12">
             <div class="overflow-x-hidden shadow-2xl rounded-md">
 
             <div class="px-5 pt-3">
                 <h1 class="text-2xl text-dark font-bold mb-4">Hourly Report</h1>
             </div>
-            <div class="h-[50vh] overflow-y-auto">   
+            <div class="overflow-y-auto" style="height: 50vh">   
                 <table class="w-full text-md text-left text-[#00000] dark:text-[#00000]">
                     <thead class=" text-md text-[#00000] uppercase bg-[#D9D9D9]  dark:text-[#00000]">
                         <tr>
